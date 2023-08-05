@@ -6,6 +6,7 @@ import {ApplicationProvider} from '@ui-kitten/components';
 import {default as theme} from '../../../theme.json'; // <-- Import app theme
 
 import {AuthenticationStack} from './AuthenticationStack';
+import {AppStack} from './AppStack';
 
 import {RootStackParamList} from '../../types';
 import {Splash} from '../screens/splash';
@@ -22,6 +23,7 @@ export const RootNavigator: React.FC = () => {
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Auth" component={AuthenticationStack} />
+          <Stack.Screen name="App" component={AppStack} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>

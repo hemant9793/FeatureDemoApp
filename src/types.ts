@@ -6,6 +6,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 export type RootStackParamList = {
     Splash: undefined
     Auth: undefined
+    App: undefined
   }
 
   export type RootScreenProps<T extends keyof RootStackParamList> = {
@@ -24,3 +25,16 @@ export type RootStackParamList = {
       NativeStackNavigationProp<RootStackParamList>
     >
   }
+
+  export type AppStackParamList = {
+    HomeScreen: undefined
+  }
+
+  export type AppScreenProps<T extends keyof AppStackParamList> = {
+    route: RouteProp<AppStackParamList, T>
+    navigation: CompositeNavigationProp<
+      NativeStackNavigationProp<AppStackParamList, T>,
+      NativeStackNavigationProp<RootStackParamList>
+    >
+  }
+  
