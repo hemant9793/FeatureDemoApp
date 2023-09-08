@@ -31,4 +31,22 @@ export class AccountsController {
     }
   }
 
+  /**
+   * Function responsible for validating inputs and calling Login API
+   * @param email Email
+   * @param password Password
+   */
+  signIn = async (email: string, password: string) => {
+    try {
+      // this.emitter.emit(AUTH_EVENTS.LOGIN_START)
+      const response = LoginApiGateway.signIn(email,password)
+      console.log('response', response)
+    } catch (error: any) {
+      console.log(error)
+      // this.emitter.emit(AUTH_EVENTS.LOGIN_FAILURE, error?.response?.data?.title)
+    }
+  }
+
+  
+
 }

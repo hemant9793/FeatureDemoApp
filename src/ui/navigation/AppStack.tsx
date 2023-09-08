@@ -2,9 +2,9 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useTheme} from '@ui-kitten/components';
 
-import {HomeScreen} from '../screens/homescreen';
 import {AppStackParamList} from '../../types';
 import {commonHeaderStyle} from './CommonNavigationStyles';
+import {HomeScreen} from '../screens/homescreen';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 

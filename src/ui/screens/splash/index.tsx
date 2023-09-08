@@ -5,11 +5,15 @@ import {Layout, Text, useTheme} from '@ui-kitten/components';
 
 import {RootScreenProps} from '../../../types';
 import {STRINGS} from './strings';
+import {LocalStorage} from '../../../common/localStorage/localStorageHandler';
+import {LOCAL_STORAGE} from '../../../constants';
 
 export const Splash: React.FC<RootScreenProps<'Splash'>> = ({navigation}) => {
-  function onAuthStateChanged(user: any) {
+  async function onAuthStateChanged(user?: any) {
     console.log('user splash', user);
-    if (!user) {
+    const saveduser = await LocalStorage.getValue(LOCAL_STORAGE.USER);
+    console.log('saveduser', saveduser);
+    if (saveduser) {
       navigation.replace('Auth');
     } else {
       navigation.replace('App');
@@ -17,8 +21,7 @@ export const Splash: React.FC<RootScreenProps<'Splash'>> = ({navigation}) => {
   }
 
   React.useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    onAuthStateChanged();
   }, []);
 
   return (

@@ -11,9 +11,16 @@
 import React, {type PropsWithChildren} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {RootNavigator} from './ui/navigation';
+import {default as theme} from '../theme.json';
+import {ApplicationProvider} from '@ui-kitten/components';
+import * as eva from '@eva-design/eva';
 
 const App = () => {
-  return <RootNavigator />;
+  return (
+    <ApplicationProvider {...eva} theme={theme}>
+      <RootNavigator />
+    </ApplicationProvider>
+  );
 };
 
 const styles = StyleSheet.create({

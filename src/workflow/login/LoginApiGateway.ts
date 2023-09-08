@@ -14,6 +14,18 @@ class AccountsApiGateway {
     return request
   }
 
+  /**
+   * Function to call sign-up API
+   * @param email Validated email
+   * @param password Validated password
+   */
+  signIn = async (
+    email: string,
+    password: string,
+  ) => {
+    const request = auth().signInWithEmailAndPassword(email, password)
+    return request
+  }
 }
 
 export default new AccountsApiGateway()
